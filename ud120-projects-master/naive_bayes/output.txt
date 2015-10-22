@@ -1,0 +1,11 @@
+('no. of Chris training emails:', 7936)
+('no. of Sara training emails:', 7884)
+Gaussian Training Time:  0.796  s
+Multinomial Training Time:  0.204  s
+Bernoulli Training Time:  0.59  s
+Gaussian Predict Time:  0.218  s
+Gaussian Accuracy:  0.973833902162
+Multinomial Predict Time:  0.015  s
+Multinomial Accuracy:  0.982935153584
+Bernoulli Predict Time:  0.062  s
+Bernoulli Accuracy:  0.907849829352
