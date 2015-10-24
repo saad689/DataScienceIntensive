@@ -1,0 +1,22 @@
+('no. of Chris training emails:', 7936)
+('no. of Sara training emails:', 7884)
+Time to train linear SVM:  178.433
+Time to predict with linear SVM:  18.798
+Accuracy of Linear Kernel SVM:  0.984072810011
+Time to train linear SVM with smaller training sample:  0.109
+Time to predict with linear SVM with small training set:  1.108
+Accuracy of Linear Kernel SVM trained with smaller size:  0.884527872582
+Time to train RBF Kernel SVM with smaller training sample:  0.11
+Time to predict with RBF SVM with small training set:  1.171
+Accuracy of RBF Kernel SVM trained with smaller size:  0.616040955631
+C =  10  Accuracy of RBF Kernel SVM trained with smaller size:  0.616040955631
+C =  100  Accuracy of RBF Kernel SVM trained with smaller size:  0.616040955631
+C =  1000  Accuracy of RBF Kernel SVM trained with smaller size:  0.821387940842
+C =  10000  Accuracy of RBF Kernel SVM trained with smaller size:  0.892491467577
+The largest value of C gives the best accuracy. This corresponds to a more     complex decision boundary as it sacrifices a smooth decision surface for greater    accuracy.
+Accuracy of RBF Kernel with optimized C of 10000:  0.990898748578
+Element 10 is classified as  1
+Element 26 is classified as  0
+Element 50 is classified as  1
+
+The number of emails predicted as Chris with an RBF Kernel     and C = 10000 is  877
