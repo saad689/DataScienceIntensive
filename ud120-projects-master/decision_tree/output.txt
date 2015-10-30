@@ -1,0 +1,14 @@
+('no. of Chris training emails:', 7936)
+('no. of Sara training emails:', 7884)
+Select Percentile =  10
+The number of features in the data:  3785
+Accuracy of this decision tree classifier with min_samples = 40:  0.978384527873
+Amount of time necessary to train data:  78.958
+('no. of Chris training emails:', 7936)
+('no. of Sara training emails:', 7884)
+Select Percentile =  1
+The number of features in the data:  379
+Accuracy of this decision tree classifier with min_samples = 40:  0.967007963595
+Amount of time necessary to train data:  6.304
+
+SelectPercentile appears to be setting the number of features in the dataset that are used to classify. A larger value for the percentile leads to more features which in turn leads to a more complex decision tree.
