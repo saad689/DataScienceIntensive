@@ -16,14 +16,15 @@ labels = np.array(df_labels.status_group)
 
 #Modfiy any dataframe columns as needed
 df_feat.loc[df_feat['construction_year'] == 0, 'construction_year'] = 1987 #This line changes all construction years that are equal to 0 to 1987
-
+#df_feat.loc[df_feat['population'] == 0, 'population'] = 282
 
 categories = ['extraction_type', 'waterpoint_type', 'region_code', 'source_type', 
               'water_quality', 'permit', 'public_meeting', 'management', 'management_group', 
               'payment', 'source_class', 'basin', 'scheme_management',
               'district_code']
-categories_large = ['funder']
-continuous_feat = ['construction_year', 'population', 'amount_tsh', 'gps_height']
+categories_large = ['funder', 'lga', 'ward', 'subvillage']
+#continuous_feat = ['construction_year', 'population', 'amount_tsh', 'gps_height']
+continuous_feat = ['construction_year']
 
 def binarize_cat(feature):
     le = preprocessing.LabelEncoder()
@@ -37,12 +38,18 @@ def minmaxscale(feature):
     arr = minmax.fit_transform(np.array(df_feat[feature]).astype(float, copy=False))
     return arr
     
+def binarize(feature):
+    minmax = preprocessing.Binarizer(copy=False)
+    minmax.set_params(threshold=(df_feat[feature].mean()))
+    arr = minmax.fit_transform(np.array(df_feat[feature]).astype(float, copy=False))
+    return arr.T
+    
 def binarize_largecat(feature):
     arr = le.fit_transform(df_feat[feature].fillna('unknown')).astype(int, copy=False)
-    num_bits = str(len(format(max(arr), 'b'))-2)
+    num_bits = str(len(format(max(arr), 'b')))
     new = []
     for i in list(range(len(arr))):
-        temp = format(arr[i],'0' + num_bits + '12b')
+        temp = format(arr[i],'0' + num_bits + 'b')
         new.append([float(i) for i in temp])
     return new
     
@@ -61,4 +68,4 @@ for feature in categories:
 
 #Get all non categorical features of interest
 for feature in continuous_feat:
-    features = np.column_stack((features, minmaxscale(feature)))
+    features = np.column_stack((features, binarize(feature)))
